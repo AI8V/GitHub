@@ -4,274 +4,545 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>56</title>
+    <title>same new</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/article-enhancements.css">
 </head>
 
 <body>
-    <main class="container my-5" aria-labelledby="main-title">
-        <div class="container text-center mb-5">
-            <h1 class="display-4" id="main-title">كيفية استضافة موقع الويب على GitHub مجانًا في دقيقتين فقط</h1>
-            <p class="lead text-muted" id="main-description" aria-describedby="main-description"> دليل خطوة بخطوة لنشر مواقع الويب الأمامية (Front-end) باستخدام GitHub Pages دون أي تكلفة </p>
-            <figure class="figure text-center mx-auto"><img class="rounded img-fluid figure-img shadow" src="assets/img/Screenshot_2.png" alt="موقع GitHub Pages">
-                <figcaption class="figure-caption text-center">GitHub Pages - خدمة استضافة مواقع الويب المجانية من GitHub</figcaption>
+    <main class="container">
+        <div class="container text-center my-5" id="headerSection">
+            <h1 class="display-4 mb-3" id="mainTitle">أساسيات CSS وطرق كتابتها</h1>
+            <p class="lead text-muted" id="mainDescription" aria-describedby="mainTitle"> تعلم كيفية كتابة أكواد CSS بثلاث طرق مختلفة وفهم تركيبة الكود الأساسية </p>
+            <figure class="figure text-center w-100 mb-4"><img class="rounded img-fluid figure-img shadow" src="assets/img/barcelona.jpg" alt="أساسيات لغة CSS" loading="lazy">
+                <figcaption class="figure-caption text-center">الشكل 1: أساسيات CSS وتركيبة الكود</figcaption>
             </figure>
         </div>
-        <div class="progress mb-4" style="height:10px;" aria-label="تقدم القراءة">
-            <div class="bg-success progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="readingProgress"></div>
-        </div>
         <div class="row mb-5">
-            <div class="col-md-12">
-                <div class="card bg-light shadow-sm p-3 mb-4 rounded">
-                    <h2 class="text-primary h4 mb-3">جدول المحتويات</h2>
-                    <nav aria-label="جدول المحتويات">
-                        <ul class="list-group" id="tableOfContents">
-                            <li><a data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" href="#prerequisites" class="list-group-item list-group-item-action" title="ما تحتاجه قبل البدء">المتطلبات المسبقة</a></li>
-                            <li><a data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" href="#step1" class="list-group-item list-group-item-action" title="الانتقال إلى إعدادات المستودع">الخطوة 1: الوصول إلى إعدادات GitHub</a></li>
-                            <li><a data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" href="#step2" class="list-group-item list-group-item-action" title="تكوين إعدادات GitHub Pages">الخطوة 2: تكوين GitHub Pages</a></li>
-                            <li><a data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" href="#step3" class="list-group-item list-group-item-action" title="متابعة عملية النشر">الخطوة 3: مراقبة عملية النشر</a></li>
-                            <li><a data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" href="#step4" class="list-group-item list-group-item-action" title="الوصول إلى موقع الويب المنشور">الخطوة 4: الوصول إلى الموقع المنشور</a></li>
-                            <li><a data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" href="#unpublish" class="list-group-item list-group-item-action" title="كيفية إلغاء نشر الموقع">إلغاء نشر الموقع</a></li>
-                        </ul>
-                    </nav>
+            <div class="col-lg-8 mx-auto">
+                <div class="bg-light shadow-sm list-group p-3 rounded" aria-label="جدول المحتويات">
+                    <h2 class="text-center h4 mb-3">جدول المحتويات</h2><a href="#introduction" class="list-group-item list-group-item-action">المقدمة والتعريف بـ CSS</a><a href="#methods" class="list-group-item list-group-item-action">الطرق الثلاث لكتابة CSS</a><a href="#internal" class="list-group-item list-group-item-action">الطريقة الأولى: كتابة CSS داخل ملف HTML (Internal CSS)</a><a href="#external" class="list-group-item list-group-item-action">الطريقة الثانية: كتابة CSS في ملف خارجي (External CSS)</a><a href="#inline" class="list-group-item list-group-item-action">الطريقة الثالثة: كتابة CSS مباشرة داخل الوسم (Inline CSS)</a><a href="#syntax" class="list-group-item list-group-item-action">تركيبة كود CSS الأساسية</a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <section class="border-primary shadow-sm card mb-4" id="prerequisites" aria-labelledby="prerequisites-title">
-                    <div class="text-white bg-primary card-header">
-                        <h2 id="prerequisites-title" class="h3 mb-0">المتطلبات المسبقة</h2>
-                    </div>
-                    <div class="card-body">
-                        <p>قبل البدء في استضافة موقع الويب الخاص بك على GitHub، ستحتاج إلى:</p>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <ul class="list-group">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span> حساب GitHub </span><span class="badge rounded-pill bg-primary">مطلوب</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span> مستودع GitHub مع ملفات موقع الويب الخاص بك </span><span class="badge rounded-pill bg-primary">مطلوب</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span> ملفات HTML و CSS الأساسية </span><span class="badge rounded-pill bg-primary">مطلوب</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="alert alert-info" role="alert">
-                                    <h3 class="h5"><i class="bi bi-info-circle"></i> ملاحظة مهمة</h3>
-                                    <p>تعمل خدمة GitHub Pages بشكل أفضل مع مواقع الويب الثابتة التي تستخدم HTML و CSS و JavaScript. إنها ليست مناسبة لتطبيقات الواجهة الخلفية (Backend).</p>
-                                </div>
-                            </div>
-                        </div>
-                        <figure>
-                            <blockquote class="blockquote blockquote border-warning ps-3 p-2 rounded" aria-label="نصيحة مهمة">
-                                <p class="mb-0">تأكد من أن الملف الرئيسي لموقع الويب الخاص بك يسمى&nbsp;<code>index.html</code>&nbsp; لأن GitHub Pages سيبحث عن هذا الملف تلقائيًا.</p>
-                            </blockquote>
-                            <figcaption class="blockquote-footer">أفضل الممارسات لاستضافة GitHub Pages</figcaption>
-                        </figure>
-                        <figure class="figure mt-3"><img class="rounded img-fluid figure-img" src="assets/img/Screenshot_2.png" alt="هيكل ملفات نموذجي لمشروع GitHub Pages">
-                            <figcaption class="figure-caption text-center">هيكل ملفات نموذجي لمشروع GitHub Pages يتضمن HTML و CSS وملفات الصور</figcaption>
-                        </figure>
-                    </div>
-                </section>
-                <section class="border-primary shadow-sm card mb-4" id="step1" aria-labelledby="step1-title">
-                    <div class="text-white bg-primary card-header">
-                        <h2 id="step1-title" class="h3 mb-0">الخطوة 1: الوصول إلى إعدادات GitHub</h2>
+        <section id="introduction" class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-primary shadow-sm mb-4" aria-labelledby="introTitle">
+                    <div class="card-header text-white bg-primary">
+                        <h2 id="introTitle" class="h3 mb-0">المقدمة والتعريف بـ CSS</h2>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-8">
-                                <ol class="list-group list-group-numbered mb-3">
-                                    <li class="list-group-item"><span>افتح مستودع GitHub الذي يحتوي على ملفات موقع الويب الخاص بك.</span></li>
-                                    <li class="list-group-item"><span>انقر فوق علامة التبويب </span><strong>Settings</strong><span> (الإعدادات) الموجودة في أعلى صفحة المستودع.</span></li>
+                                <p>CSS (<span lang="en">Cascading Style Sheets</span>) هي لغة تنسيق تُستخدم لتنسيق وتصميم صفحات الويب. تمكنك من التحكم في مظهر عناصر HTML من حيث اللون والخط والحجم والموضع وغيرها.</p><blockquote class="blockquote border-warning ps-3 bg-light p-2 rounded" aria-label="معلومة أساسية">
+                <p>الوظيفة الأساسية لـ CSS هي تنسيق عناصر صفحات الويب التي تم بناؤها بـ HTML، فإذا كان HTML هو هيكل الموقع، فإن CSS هو مظهره وتصميمه.</p>
+              </blockquote>
+                                <p>قبل البدء في كتابة أكواد CSS، يجب أن تقوم أولاً بإنشاء موقع الويب الخاص بك:</p>
+                                <ol class="mb-4">
+                                    <li>إنشاء مجلد (folder) لمشروع الموقع يحتوي على جميع الملفات المطلوبة.</li>
+                                    <li>فتح المجلد في محرر الأكواد (مثل Visual Studio Code).</li>
+                                    <li>إنشاء ملف HTML كخطوة أولى لبناء هيكل الموقع.</li>
                                 </ol>
-                                <div class="alert alert-warning" role="alert">
-                                    <h3 class="h5"><i class="bi bi-exclamation-triangle"></i> تنبيه</h3>
-                                    <p>يجب أن تكون مالك المستودع أو أن يكون لديك أذونات المسؤول للوصول إلى إعدادات المستودع.</p>
-                                </div>
                             </div>
                             <div class="col-md-4">
-                                <figure class="figure"><img class="rounded img-fluid figure-img shadow" src="assets/img/Screenshot_2.png" alt="علامة تبويب إعدادات GitHub">
-                                    <figcaption class="figure-caption text-center">انقر على علامة التبويب "Settings" في المستودع</figcaption>
+                                <figure class="figure text-center w-100"><img class="rounded img-fluid figure-img shadow" src="assets/img/amsterdam.jpg" alt="وظيفة CSS في تنسيق العناصر" loading="lazy">
+                                    <figcaption class="figure-caption text-center">الشكل 2: دور CSS في تنسيق عناصر الويب</figcaption>
                                 </figure>
                             </div>
                         </div>
                     </div>
-                </section>
-                <section class="border-primary shadow-sm card mb-4" id="step2" aria-labelledby="step2-title">
-                    <div class="text-white bg-primary card-header">
-                        <h2 id="step2-title" class="h3 mb-0">الخطوة 2: تكوين GitHub Pages</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <ol class="list-group list-group-numbered mb-3">
-                                    <li class="list-group-item"><span>في صفحة الإعدادات، قم بالتمرير لأسفل وانقر على </span><strong>Pages</strong><span> في قسم </span><strong>Code and automation</strong><span>.</span></li>
-                                    <li class="list-group-item"><span>ضمن </span><strong>Source</strong><span>، اختر </span><strong>Deploy from a branch</strong><span>.</span></li>
-                                    <li class="list-group-item"><span>اختر الفرع (Branch) الذي يحتوي على التعليمات البرمجية التي تريد نشرها (عادةً </span><strong>main</strong><span> أو </span><strong>master</strong><span>).</span></li>
-                                    <li class="list-group-item"><span>حدد الدليل (Directory) حيث توجد ملفاتك. اختر </span><strong>/ (root)</strong><span> إذا كانت ملفاتك في الدليل الجذر للمستودع.</span></li>
-                                    <li class="list-group-item"><span>انقر فوق زر </span><strong>Save</strong><span> (حفظ) للحفظ والبدء في عملية النشر.</span></li>
-                                </ol>
-                            </div>
-                            <div class="col-md-5">
-                                <figure class="figure"><img class="rounded img-fluid figure-img shadow" src="assets/img/Screenshot_2.png" alt="إعدادات GitHub Pages">
-                                    <figcaption class="figure-caption text-center">تكوين إعدادات GitHub Pages</figcaption>
-                                </figure>
-                                <div class="card bg-light mt-3">
-                                    <div class="card-body">
-                                        <h3 class="h5 card-title"><i class="bi bi-lightbulb"></i> نصيحة احترافية</h3>
-                                        <p class="card-text">في معظم المشاريع الصغيرة، يتم وضع ملفات موقع الويب في الدليل الجذر (<code>/</code>). ومع ذلك، يمكنك أيضًا اختيار الدليل <code>/docs</code> إذا كنت تفضل الاحتفاظ بملفات موقعك منفصلة.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="border-primary shadow-sm card mb-4" id="step3" aria-labelledby="step3-title">
-                    <div class="text-white bg-primary card-header">
-                        <h2 id="step3-title" class="h3 mb-0">الخطوة 3: مراقبة عملية النشر</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ol class="list-group list-group-numbered mb-3">
-                                    <li class="list-group-item"><span>ارجع إلى علامة التبويب </span><strong>Code</strong><span> في مستودع GitHub الخاص بك.</span></li>
-                                    <li class="list-group-item"><span>ستلاحظ دائرة صفراء بجوار آخر التزام (commit). انقر عليها لمعرفة حالة النشر.</span></li>
-                                    <li class="list-group-item"><span>انقر فوق </span><strong>Details</strong><span> لعرض حالة عملية النشر بالتفصيل.</span></li>
-                                    <li class="list-group-item"><span>انتظر حتى تكتمل جميع الخطوات بنجاح (سيستغرق ذلك عادةً دقيقة أو دقيقتين).</span></li>
-                                </ol>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card text-white bg-info shadow-lg" role="region" aria-labelledby="deployment-process">
-                                    <div class="card-header">
-                                        <h3 id="deployment-process" class="h5 mb-0">عملية النشر</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>تقوم GitHub Pages تلقائيًا بما يلي:</p>
-                                        <ul class="list-unstyled">
-                                            <li><i class="bi bi-check-circle-fill"></i> جلب أحدث محتوى من الفرع المحدد</li>
-                                            <li><i class="bi bi-check-circle-fill"></i> بناء موقع الويب</li>
-                                            <li><i class="bi bi-check-circle-fill"></i> نشر الموقع على خوادم GitHub Pages</li>
-                                            <li><i class="bi bi-check-circle-fill"></i> إنشاء رابط عام لموقع الويب الخاص بك</li>
-                                        </ul>
-                                        <div class="progress mt-3" style="height:20px;">
-                                            <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" role="progressbar" style="width:100%;">100%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <figure class="figure mt-3"><img class="rounded img-fluid figure-img shadow" src="assets/img/Screenshot_2.png" alt="عملية نشر GitHub Pages">
-                                    <figcaption class="figure-caption text-center">مراقبة حالة نشر GitHub Pages</figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="border-primary shadow-sm card mb-4" id="step4" aria-labelledby="step4-title">
-                    <div class="text-white bg-primary card-header">
-                        <h2 id="step4-title" class="h3 mb-0">الخطوة 4: الوصول إلى الموقع المنشور</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <ol class="list-group list-group-numbered mb-3">
-                                    <li class="list-group-item"><span>بعد اكتمال عملية النشر، عد إلى قسم </span><strong>Settings &gt; Pages</strong><span>.</span></li>
-                                    <li class="list-group-item"><span>ستجد رابط موقع الويب المنشور الخاص بك في أعلى الصفحة.</span></li>
-                                    <li class="list-group-item"><span>يمكنك النقر على هذا الرابط أو اختيار </span><strong>Visit site</strong><span> للوصول إلى موقع الويب المنشور الخاص بك.</span></li>
-                                </ol>
-                                <div class="alert alert-success" role="alert">
-                                    <h3 class="h5"><i class="bi bi-check-circle"></i> تم بنجاح!</h3>
-                                    <p>تهانينا! موقع الويب الخاص بك الآن متاح للجمهور ويمكن الوصول إليه من أي مكان في العالم.</p>
-                                </div>
-                                <p>عنوان URL النموذجي سيكون بالتنسيق التالي:</p>
-                                <div class="input-group mb-3"><span class="input-group-text input-group-text">URL</span><input class="form-control form-control" type="text" aria-label="URL الموقع المستضاف" readonly="" value="https://yourusername.github.io/repository-name"><button class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bss-tooltip="" type="button" id="copyButton" title="نسخ الرابط">نسخ</button></div>
-                            </div>
-                            <div class="col-md-5">
-                                <div id="publishedExamples" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img class="rounded d-block w-100" src="assets/img/Amr%20Abdelsalam.jpg" alt="مثال لموقع منشور على GitHub Pages">
-                                            <div class="bg-dark bg-opacity-50 d-none d-md-block carousel-caption rounded">
-                                                <h5>موقع شخصي</h5>
-                                                <p>موقع سيرة ذاتية منشور على GitHub Pages</p>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item"><img class="rounded d-block w-100" src="assets/img/Screenshot_2.png" alt="موقع مشروع على GitHub Pages">
-                                            <div class="bg-dark bg-opacity-50 d-none d-md-block carousel-caption rounded">
-                                                <h5>موقع مشروع</h5>
-                                                <p>توثيق مشروع منشور على GitHub Pages</p>
-                                            </div>
-                                        </div>
-                                    </div><button class="carousel-control-prev" type="button" data-bs-target="#publishedExamples" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">السابق</span></button><button class="carousel-control-next" type="button" data-bs-target="#publishedExamples" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">التالي</span></button>
-                                </div>
-                                <div class="card bg-light mt-3">
-                                    <div class="card-body">
-                                        <h3 class="h5 card-title"><i class="bi bi-share"></i> مشاركة موقعك</h3>
-                                        <p class="card-text">يمكنك مشاركة عنوان URL الخاص بك مع أي شخص. الموقع متاح للعامة ويمكن الوصول إليه من أي متصفح ويب.</p>
-                                        <div class="d-grid gap-2"><button class="btn btn-primary" type="button" data-bs-toggle="popover" data-bs-content="تم نسخ الرابط بنجاح!" data-bs-trigger="focus">مشاركة الموقع</button></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="border-danger shadow-sm card mb-4" id="unpublish" aria-labelledby="unpublish-title">
-                    <div class="text-white bg-danger card-header">
-                        <h2 id="unpublish-title" class="h3 mb-0">إلغاء نشر الموقع</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <p>إذا كنت ترغب في إلغاء نشر موقع الويب الخاص بك في أي وقت، يمكنك اتباع هذه الخطوات البسيطة:</p>
-                                <ol class="list-group list-group-numbered mb-3">
-                                    <li class="list-group-item"><span>انتقل إلى صفحة </span><strong>Settings &gt; Pages</strong><span> في مستودع GitHub الخاص بك.</span></li>
-                                    <li class="list-group-item"><span>انقر على النقاط الثلاث (</span><strong>⋮</strong><span>) في الزاوية اليمنى العليا.</span></li>
-                                    <li class="list-group-item"><span>اختر خيار </span><strong>Unpublish site</strong><span> (إلغاء نشر الموقع).</span></li>
-                                </ol>
-                                <div class="alert alert-warning" role="alert">
-                                    <h3 class="h5"><i class="bi bi-exclamation-triangle"></i> تنبيه</h3>
-                                    <p>سيؤدي إلغاء نشر موقعك إلى جعله غير متاح على الإنترنت، ولكنه لن يؤثر على ملفات المصدر في مستودع GitHub الخاص بك.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <figure class="figure"><img class="rounded img-fluid figure-img shadow" src="assets/img/Amr%20Abdelsalam.jpg" alt="خيار إلغاء نشر موقع GitHub Pages">
-                                    <figcaption class="figure-caption text-center">خيار إلغاء نشر موقع GitHub Pages</figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="conclusion">
-                    <div class="alert alert-warning text-center shadow-lg p-3 rounded" role="alert">
-                        <h2 class="h3">الخلاصة</h2>
-                        <p>تعد GitHub Pages طريقة رائعة ومجانية لاستضافة مواقع الويب الأمامية (Front-end) الخاصة بك. تتيح لك عرض مشاريعك، وإنشاء مواقع شخصية، وحتى نشر المدونات والوثائق، كل ذلك دون تكلفة الاستضافة التقليدية.</p>
-                        <p>باتباع هذا الدليل البسيط، يمكنك نشر موقع ويب خاص بك عبر الإنترنت في دقيقتين فقط.</p><a class="btn btn-primary btn-lg mt-3" role="button" href="#main-title">العودة إلى الأعلى</a>
-                    </div>
-                </section>
-                <section id="faq" class="mt-5">
-                    <h2 class="h3 mb-4">الأسئلة الشائعة</h2>
-                    <div class="accordion accordion-flush" id="faqAccordion">
-                        <div class="accordion-item">
-                            <h3 class="accordion-header" id="faqHeading1"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1"> هل يمكنني استخدام اسم نطاق (Domain) مخصص مع GitHub Pages؟ </button></h3>
-                            <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body"><span> نعم، يمكنك استخدام اسم نطاق مخصص مع GitHub Pages. بعد نشر موقعك، يمكنك الانتقال إلى إعدادات GitHub Pages وإضافة اسم النطاق المخصص الخاص بك في قسم "Custom domain". </span></div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h3 class="accordion-header" id="faqHeading2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2"> هل يمكنني استضافة تطبيقات ديناميكية على GitHub Pages؟ </button></h3>
-                            <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body"><span> GitHub Pages مخصص بشكل أساسي لمواقع الويب الثابتة (HTML، CSS، JavaScript). لا يمكنه استضافة تطبيقات الواجهة الخلفية (Backend) التي تتطلب خوادم مثل PHP، Node.js، أو Python. ومع ذلك، يمكنك استخدام إطار عمل JavaScript مثل React أو Vue لإنشاء تطبيقات واجهة أمامية (Frontend) ديناميكية. </span></div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h3 class="accordion-header" id="faqHeading3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3"> ما هي حدود الاستضافة على GitHub Pages؟ </button></h3>
-                            <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body"><span> تشمل حدود GitHub Pages حجم مستودع يبلغ 1 جيجابايت، وحد بناء شهري يبلغ 100 جيجابايت، و10 عمليات بناء في الساعة. هذه الحدود كافية للمواقع الشخصية ومواقع المشاريع النموذجية. </span></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                </div>
             </div>
-        </div>
+        </section>
+        <section id="methods" class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-success shadow-sm mb-4" aria-labelledby="methodsTitle">
+                    <div class="card-header text-white bg-success">
+                        <h2 id="methodsTitle" class="h3 mb-0">الطرق الثلاث لكتابة CSS</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>هناك ثلاث طرق أساسية يمكنك من خلالها إضافة أكواد CSS إلى صفحة الويب:</p>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover" aria-describedby="methodsTitle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">الطريقة</th>
+                                        <th scope="col">المصطلح الإنجليزي</th>
+                                        <th scope="col">الوصف</th>
+                                        <th scope="col">متى تُستخدم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>كتابة CSS داخل ملف HTML</td>
+                                        <td><span lang="en">Internal CSS</span></td>
+                                        <td>كتابة أكواد CSS داخل وسم <code>&lt;style&gt;</code> في قسم <code>&lt;head&gt;</code></td>
+                                        <td>للصفحات الصغيرة أو عند الحاجة لتنسيق صفحة واحدة فقط</td>
+                                    </tr>
+                                    <tr>
+                                        <td>كتابة CSS في ملف خارجي</td>
+                                        <td><span lang="en">External CSS</span></td>
+                                        <td>كتابة أكواد CSS في ملف منفصل بامتداد <code dir="ltr">.css</code> وربطه بصفحة HTML</td>
+                                        <td>للمواقع الكبيرة وهي الطريقة المفضلة في معظم المشاريع</td>
+                                    </tr>
+                                    <tr>
+                                        <td>كتابة CSS مباشرة داخل الوسم</td>
+                                        <td><span lang="en">Inline CSS</span></td>
+                                        <td>كتابة أكواد CSS مباشرة داخل وسم HTML باستخدام السمة <code>style</code></td>
+                                        <td>لإضافة تنسيق لعنصر واحد فقط أو لتجاوز التنسيقات الأخرى</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="alert alert-info" role="alert"><i class="bi bi-info-circle-fill me-2"></i><span> سنشرح كل طريقة بالتفصيل في الأقسام التالية. </span></div>
+                        <div class="progress mt-4 mb-2" style="height:30px;">
+                            <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" role="progressbar" style="width:100%;">100%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="internal" class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-info shadow-sm mb-4" aria-labelledby="internalTitle">
+                    <div class="card-header text-white bg-info">
+                        <h2 id="internalTitle" class="h3 mb-0">الطريقة الأولى: كتابة CSS داخل ملف HTML (Internal CSS)</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p>الطريقة الأولى لكتابة CSS هي إضافة أكواد CSS مباشرة داخل ملف HTML باستخدام وسم <code>&lt;style&gt;</code> داخل قسم <code>&lt;head&gt;</code>.</p>
+                                <h3 class="h5 mt-4 mb-3">كيفية استخدام الـ Internal CSS:</h3>
+                                <div class="bg-light p-3 rounded mb-4" dir="ltr"><pre class="mb-0"><code>&lt;head&gt;
+  &lt;style&gt;
+    h2 {
+      color: red;
+      font-size: 50px;
+    }
+
+    p {
+      color: blue;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre></div>
+                                <div class="alert alert-warning" role="alert"><strong>ملاحظة هامة:</strong><span> عند استخدام هذه الطريقة، فإن التنسيقات المكتوبة ستطبق فقط على الصفحة الحالية. </span></div>
+                                <h3 class="h5 mt-4">مميزات وعيوب الـ Internal CSS:</h3>
+                                <div class="row mt-3">
+                                    <div class="col-sm-6">
+                                        <div class="card h-100 border-success">
+                                            <div class="card-header text-white bg-success">
+                                                <h4 class="h6 mb-0">المميزات</h4>
+                                            </div>
+                                            <ul class="list-group list-group-flush list-group-flush">
+                                                <li class="list-group-item"><span>سهولة التنفيذ والتعديل</span></li>
+                                                <li class="list-group-item"><span>عدم الحاجة لملفات إضافية</span></li>
+                                                <li class="list-group-item"><span>مناسب للصفحات الصغيرة</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card h-100 border-danger">
+                                            <div class="card-header text-white bg-danger">
+                                                <h4 class="h6 mb-0">العيوب</h4>
+                                            </div>
+                                            <ul class="list-group list-group-flush list-group-flush">
+                                                <li class="list-group-item"><span>زيادة حجم ملف HTML</span></li>
+                                                <li class="list-group-item"><span>عدم إمكانية إعادة استخدام الأكواد في صفحات أخرى</span></li>
+                                                <li class="list-group-item"><span>صعوبة الصيانة في المواقع الكبيرة</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <figure class="figure text-center w-100 mb-4"><img class="rounded img-fluid figure-img shadow" src="assets/img/berlin.jpg" alt="طريقة كتابة Internal CSS" loading="lazy">
+                                    <figcaption class="figure-caption text-center">الشكل 3: تطبيق Internal CSS داخل ملف HTML</figcaption>
+                                </figure>
+                                <div class="card bg-light border-primary mt-4">
+                                    <div class="card-header text-white bg-primary">
+                                        <h4 class="h6 mb-0">مثال عملي</h4>
+                                    </div>
+                                    <div class="card-body" dir="ltr">
+                                        <p dir="rtl">عند كتابة الكود التالي:</p><pre><code>&lt;style&gt;
+  h2 {
+    color: red;
+  }
+&lt;/style&gt;
+
+&lt;h2&gt;عنوان بلون أحمر&lt;/h2&gt;</code></pre>
+                                        <p class="mt-3" dir="rtl">سيظهر العنوان h2 باللون الأحمر في الصفحة.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="external" class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-warning shadow-sm mb-4" aria-labelledby="externalTitle">
+                    <div class="card-header text-dark bg-warning">
+                        <h2 id="externalTitle" class="h3 mb-0">الطريقة الثانية: كتابة CSS في ملف خارجي (External CSS)</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p>الطريقة الثانية والأكثر استخداماً في المشاريع الحقيقية هي كتابة أكواد CSS في ملف خارجي منفصل بامتداد <code dir="ltr">.css</code> ثم ربطه بملف HTML باستخدام وسم <code>&lt;link&gt;</code>.</p>
+                                <h3 class="h5 mt-4 mb-3">خطوات استخدام الـ External CSS:</h3>
+                                <ol class="list-group list-group-numbered mb-4">
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-auto ms-2">
+                                            <div class="fw-bold"><span>إنشاء ملف CSS</span></div><span> قم بإنشاء ملف جديد بامتداد </span><code dir="ltr">.css</code><span> (مثل </span><code>style.css</code><span>) </span>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-auto ms-2">
+                                            <div class="fw-bold"><span>كتابة أكواد CSS</span></div><span> اكتب أكواد CSS في الملف بنفس الطريقة التي تكتب بها في وسم </span><code>&lt;style&gt;</code>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-auto ms-2">
+                                            <div class="fw-bold"><span>ربط ملف CSS بصفحة HTML</span></div><span> استخدم وسم </span><code>&lt;link&gt;</code><span> داخل قسم </span><code>&lt;head&gt;</code><span> لربط ملف CSS بصفحة HTML </span>
+                                        </div>
+                                    </li>
+                                </ol>
+                                <div class="bg-light p-3 rounded mb-4" dir="ltr">
+                                    <h4 class="h6" dir="rtl">كود ربط ملف CSS بصفحة HTML:</h4><pre class="mb-0"><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+                                </div>
+                                <div class="alert alert-info" role="alert"><strong>شرح الكود:</strong><br><code>rel="stylesheet"</code><span>: تحدد نوع الملف (ملف تنسيق)</span><br><code>href="style.css"</code><span>: مسار ملف CSS (اسم الملف إذا كان بنفس المجلد) </span></div>
+                                <div class="card bg-light border-info mt-4">
+                                    <div class="card-header text-white bg-info">
+                                        <h4 class="h6 mb-0">ربط ملف CSS في مجلد آخر</h4>
+                                    </div>
+                                    <div class="card-body" dir="ltr">
+                                        <p dir="rtl">إذا كان ملف CSS في مجلد آخر (مثل مجلد <code>css</code>)، فإن كود الربط سيكون:</p><pre><code>&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <figure class="figure text-center w-100 mb-4"><img class="rounded img-fluid figure-img shadow" src="assets/img/paris.jpg" alt="طريقة استخدام External CSS" loading="lazy">
+                                    <figcaption class="figure-caption text-center">الشكل 4: ربط ملف CSS خارجي بصفحة HTML</figcaption>
+                                </figure>
+                                <div class="card border-success mt-4">
+                                    <div class="card-header text-white bg-success">
+                                        <h4 class="h6 mb-0">مميزات استخدام External CSS</h4>
+                                    </div>
+                                    <ul class="list-group list-group-flush list-group-flush">
+                                        <li class="list-group-item"><span>فصل هيكل HTML عن التنسيق</span></li>
+                                        <li class="list-group-item"><span>إمكانية استخدام نفس ملف CSS لعدة صفحات HTML</span></li>
+                                        <li class="list-group-item"><span>سهولة الصيانة والتعديل</span></li>
+                                        <li class="list-group-item"><span>تقليل حجم صفحات HTML</span></li>
+                                        <li class="list-group-item"><span>تحسين أداء الموقع عبر تخزين ملف CSS للزيارات المتكررة</span></li>
+                                    </ul>
+                                </div>
+                                <div class="progress mt-4" style="height:30px;">
+                                    <div class="progress-bar bg-warning text-dark" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" role="progressbar" style="width:100%;">100%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="inline" class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-danger shadow-sm mb-4" aria-labelledby="inlineTitle">
+                    <div class="card-header text-white bg-danger">
+                        <h2 id="inlineTitle" class="h3 mb-0">الطريقة الثالثة: كتابة CSS مباشرة داخل الوسم (Inline CSS)</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>الطريقة الثالثة هي كتابة أكواد CSS مباشرة داخل وسم HTML باستخدام سمة <code>style</code>. تُطبق هذه التنسيقات فقط على العنصر الذي تمت إضافتها له.</p>
+                                <h3 class="h5 mt-4 mb-3">كيفية استخدام الـ Inline CSS:</h3>
+                                <div class="bg-light p-3 rounded mb-4" dir="ltr"><pre class="mb-0"><code>&lt;h2 style="color: red; font-size: 40px;"&gt;عنوان باللون الأحمر&lt;/h2&gt;
+&lt;p style="color: blue;"&gt;فقرة باللون الأزرق&lt;/p&gt;</code></pre></div>
+                                <div class="alert alert-warning" role="alert"><strong>ملاحظة هامة:</strong><span> عند استخدام هذه الطريقة، يُكتب الكود مباشرة داخل الوسم دون الحاجة لتحديد العنصر (لأنك بالفعل داخل العنصر). </span></div>
+                                <h3 class="h5 mt-4">كيفية إضافة عدة خصائص:</h3>
+                                <p>يمكنك إضافة أكثر من خاصية في نفس السمة <code>style</code> بفصلها باستخدام الفاصلة المنقوطة (<code>;</code>):</p>
+                                <div class="bg-light p-3 rounded mb-4" dir="ltr"><pre class="mb-0"><code>&lt;h2 style="color: red; font-size: 40px; font-weight: bold;"&gt;
+  عنوان بعدة تنسيقات
+&lt;/h2&gt;</code></pre></div>
+                            </div>
+                            <div class="col-md-6">
+                                <figure class="figure text-center w-100 mb-4"><img class="rounded img-fluid figure-img shadow" src="assets/img/prague.jpg" alt="طريقة استخدام Inline CSS" loading="lazy">
+                                    <figcaption class="figure-caption text-center">الشكل 5: استخدام Inline CSS مباشرة في وسم HTML</figcaption>
+                                </figure>
+                                <div class="row mt-4">
+                                    <div class="col-sm-6">
+                                        <div class="card h-100 border-success">
+                                            <div class="card-header text-white bg-success">
+                                                <h4 class="h6 mb-0">متى تستخدم Inline CSS</h4>
+                                            </div>
+                                            <ul class="list-group list-group-flush list-group-flush">
+                                                <li class="list-group-item"><span>تغيير عنصر واحد فقط</span></li>
+                                                <li class="list-group-item"><span>تجاوز التنسيقات الأخرى</span></li>
+                                                <li class="list-group-item"><span>إجراء اختبارات سريعة</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card h-100 border-danger">
+                                            <div class="card-header text-white bg-danger">
+                                                <h4 class="h6 mb-0">عيوب Inline CSS</h4>
+                                            </div>
+                                            <ul class="list-group list-group-flush list-group-flush">
+                                                <li class="list-group-item"><span>صعوبة الصيانة</span></li>
+                                                <li class="list-group-item"><span>تكرار الكود</span></li>
+                                                <li class="list-group-item"><span>زيادة حجم HTML</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alert alert-danger mt-4" role="alert"><strong>تنبيه:</strong><span> لا ينصح باستخدام هذه الطريقة بشكل أساسي في بناء المواقع، فهي تجعل الكود أكثر تعقيداً وأصعب في الصيانة. </span></div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header text-white bg-secondary">
+                                        <h3 class="h5 mb-0">مثال عملي</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6" dir="ltr">
+                                                <h4 class="h6" dir="rtl">الكود:</h4><pre><code>&lt;h2 style="color: red;"&gt;عنوان باللون الأحمر&lt;/h2&gt;
+&lt;p style="color: blue; font-size: 20px;"&gt;فقرة باللون الأزرق&lt;/p&gt;</code></pre>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h4 class="h6">النتيجة:</h4>
+                                                <div class="border p-3">
+                                                    <h2 style="color:red;">عنوان باللون الأحمر</h2>
+                                                    <p style="color:blue;font-size:20px;">فقرة باللون الأزرق</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="syntax" class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-primary shadow-sm mb-4" aria-labelledby="syntaxTitle">
+                    <div class="card-header text-white bg-primary">
+                        <h2 id="syntaxTitle" class="h3 mb-0">تركيبة كود CSS الأساسية</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p>لفهم طريقة كتابة CSS بشكل صحيح، يجب أن تتعرف على تركيبة الكود الأساسية.</p>
+                                <div class="bg-light p-3 rounded mb-4" dir="ltr"><pre class="mb-0"><code>selector {
+  property1: value1;
+  property2: value2;
+  /* يمكنك إضافة المزيد من الخصائص */
+}</code></pre></div>
+                                <h3 class="h5 mt-4">شرح مكونات كود CSS:</h3>
+                                <div class="table-responsive mb-4">
+                                    <table class="table table-bordered" aria-describedby="syntaxTitle">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                <th scope="col">المكون</th>
+                                                <th scope="col">المصطلح الإنجليزي</th>
+                                                <th scope="col">الوصف</th>
+                                                <th scope="col">مثال</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>المُحدد</td>
+                                                <td><span lang="en">Selector</span></td>
+                                                <td>يحدد العنصر الذي تريد تنسيقه</td>
+                                                <td><code>h2</code>, <code>p</code>, <code>.class</code>, <code>#id</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>الخاصية</td>
+                                                <td><span lang="en">Property</span></td>
+                                                <td>الجانب الذي تريد تغييره في العنصر</td>
+                                                <td><code>color</code>, <code>font-size</code>, <code>margin</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>القيمة</td>
+                                                <td><span lang="en">Value</span></td>
+                                                <td>القيمة المحددة للخاصية</td>
+                                                <td><code>red</code>, <code>20px</code>, <code>bold</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>النقطتان</td>
+                                                <td><span lang="en">Colon (:)</span></td>
+                                                <td>تفصل بين الخاصية وقيمتها</td>
+                                                <td><code dir="ltr">color: red;</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>الفاصلة المنقوطة</td>
+                                                <td><span lang="en">Semicolon (;)</span></td>
+                                                <td>تفصل بين الخصائص المختلفة</td>
+                                                <td><code dir="ltr">color: red; font-size: 20px;</code></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="alert alert-info" role="alert"><strong>معلومة هامة:</strong><span> يمكنك إضافة عدد غير محدود من الخصائص للعنصر الواحد، ولكن يجب الفصل بينها بالفاصلة المنقوطة (;). </span></div>
+                                <h3 class="h5 mt-4">مثال شامل:</h3>
+                                <div class="bg-light p-3 rounded mb-3" dir="ltr"><pre class="mb-0"><code>h2 {
+  color: red;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}</code></pre></div>
+                                <p>في المثال السابق، اخترنا جميع عناصر <code>h2</code> وطبقنا عليها أربع خصائص مختلفة.</p>
+                            </div>
+                            <div class="col-md-5">
+                                <figure class="figure text-center w-100 mb-4"><img class="rounded img-fluid figure-img shadow" src="assets/img/rome.jpg" alt="تركيبة كود CSS" loading="lazy">
+                                    <figcaption class="figure-caption text-center">الشكل 6: تركيبة كود CSS الأساسية</figcaption>
+                                </figure>
+                                <div class="accordion accordion-flush mt-4" id="syntaxExamples">
+                                    <div class="accordion-item">
+                                        <h3 class="d-inline-flex accordion-header" id="heading1"><button class="flex-row-reverse accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1"> تشبيه لفهم تركيبة CSS </button></h3>
+                                        <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#syntaxExamples">
+                                            <div class="accordion-body">
+                                                <p>يمكن تشبيه تركيبة CSS كما لو كنت تصف شخصاً ما:</p>
+                                                <ul>
+                                                    <li><strong>المُحدد (Selector):</strong> الشخص الذي تصفه (مثل محمد)</li>
+                                                    <li><strong>الخاصية (Property):</strong> الصفة التي تصفها (مثل الطول)</li>
+                                                    <li><strong>القيمة (Value):</strong> قيمة هذه الصفة (مثل 180 سم)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="d-inline-flex accordion-header" id="heading2"><button class="flex-row-reverse accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2"> نصائح لكتابة CSS </button></h3>
+                                        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#syntaxExamples">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>دائماً أضف الفاصلة المنقوطة (;) بعد كل خاصية</li>
+                                                    <li>استخدم المسافات لجعل الكود أكثر قابلية للقراءة</li>
+                                                    <li>يمكنك كتابة تعليقات في CSS باستخدام <code>/* تعليق */</code></li>
+                                                    <li>تجنب تكرار الأكواد باستخدام الـ External CSS</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-success mt-4">
+                                    <div class="card-header text-white bg-success">
+                                        <h3 class="h6 mb-0">مثال بصري</h3>
+                                    </div>
+                                    <div class="card-body"><img class="rounded img-fluid shadow-sm" src="assets/img/amsterdam.jpg" alt="مثال بصري لتركيبة CSS" loading="lazy">
+                                        <div class="d-flex justify-content-between mt-3"><span class="badge bg-primary p-2">Selector</span><span class="badge bg-info p-2">Property</span><span class="badge bg-success p-2">Value</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="alert alert-warning text-center shadow-lg p-4 rounded" role="alert">
+                    <h2 class="h4 mb-3">الخلاصة</h2>
+                    <p>تعلمنا في هذا الدرس الطرق الثلاث الأساسية لكتابة أكواد CSS وهي:</p>
+                    <ol class="text-start mx-auto mb-3" style="max-width:500px;">
+                        <li><strong>Internal CSS:</strong> كتابة أكواد CSS داخل ملف HTML باستخدام وسم <code>&lt;style&gt;</code></li>
+                        <li><strong>External CSS:</strong> كتابة أكواد CSS في ملف خارجي منفصل وربطه بملف HTML</li>
+                        <li><strong>Inline CSS:</strong> كتابة أكواد CSS مباشرة داخل وسم HTML باستخدام سمة <code>style</code></li>
+                    </ol>
+                    <p>كما تعرفنا على تركيبة كود CSS الأساسية التي تتكون من:</p>
+                    <p class="mb-4" dir="ltr"><strong>المُحدد (Selector) { الخاصية (Property): القيمة (Value); }</strong></p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="progress mb-4" style="height:20px;">
+                                <div class="bg-success progress-bar" role="progressbar" style="width:33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"><span> Internal CSS </span></div>
+                                <div class="text-dark bg-warning progress-bar" role="progressbar" style="width:34%;" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"><span> External CSS </span></div>
+                                <div class="bg-danger progress-bar" role="progressbar" style="width:33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"><span> Inline CSS </span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-4">الطريقة المفضلة في معظم المشاريع هي <strong>External CSS</strong> نظراً لفوائدها المتعددة في تنظيم الكود وإعادة استخدامه.</p><a class="btn btn-primary btn-lg mt-2" role="button" href="#introduction">العودة للبداية</a>
+                </div>
+            </div>
+        </section>
+        <section class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm mb-4" aria-labelledby="faqTitle">
+                    <div class="card-header text-white bg-secondary">
+                        <h2 id="faqTitle" class="h3 mb-0">أسئلة شائعة</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="accordion accordion-flush" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h3 class="d-inline-flex accordion-header" id="faqHeading1"><button class="flex-row-reverse accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1"> ما هي أفضل طريقة لكتابة CSS؟ </button></h3>
+                                <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>أفضل طريقة هي استخدام <strong>External CSS</strong> (ملف خارجي) لأنها:</p>
+                                        <ul>
+                                            <li>تفصل بين هيكل HTML والتنسيق</li>
+                                            <li>تسمح بإعادة استخدام نفس الأكواد في عدة صفحات</li>
+                                            <li>تسهل صيانة وتعديل الموقع</li>
+                                            <li>تحسن أداء الموقع عبر تخزين ملف CSS</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="d-inline-flex accordion-header" id="faqHeading2"><button class="flex-row-reverse accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2"> متى أستخدم Inline CSS؟ </button></h3>
+                                <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>يُفضل استخدام Inline CSS في الحالات التالية:</p>
+                                        <ul>
+                                            <li>عند الحاجة لتغيير تنسيق عنصر واحد فقط</li>
+                                            <li>لتجاوز التنسيقات الأخرى (لأن Inline CSS له أعلى أولوية)</li>
+                                            <li>عند إجراء اختبارات سريعة</li>
+                                            <li>في بعض حالات البريد الإلكتروني HTML حيث لا يمكن استخدام ملفات خارجية</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="d-inline-flex accordion-header" id="faqHeading3"><button class="flex-row-reverse accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3"> ما هي أولوية تطبيق CSS؟ </button></h3>
+                                <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>أولوية تطبيق CSS من الأعلى للأدنى:</p>
+                                        <ol>
+                                            <li><strong>Inline CSS</strong> (مباشرة في العنصر)</li>
+                                            <li><strong>Internal CSS</strong> (داخل ملف HTML)</li>
+                                            <li><strong>External CSS</strong> (في ملف خارجي)</li>
+                                        </ol>
+                                        <p>هذا يعني أن التنسيقات المكتوبة بطريقة Inline ستطغى على التنسيقات المكتوبة في Internal أو External CSS.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="d-inline-flex accordion-header" id="faqHeading4"><button class="flex-row-reverse accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4"> ما هي الخطوات التالية بعد تعلم أساسيات CSS؟ </button></h3>
+                                <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>بعد تعلم أساسيات CSS، يمكنك الانتقال إلى المواضيع التالية:</p>
+                                        <ul>
+                                            <li>خصائص CSS المختلفة (الألوان، الخطوط، الهوامش، الحدود، إلخ)</li>
+                                            <li>CSS Box Model (النموذج الصندوقي)</li>
+                                            <li>CSS Positioning (التموضع)</li>
+                                            <li>CSS Flexbox و CSS Grid</li>
+                                            <li>CSS Media Queries (للمواقع المتجاوبة)</li>
+                                            <li>CSS Animations (التحريكات)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/article-enhancements.js"></script>
 </body>
 
 </html>
